@@ -2,7 +2,7 @@ pipeline {
     agent {
       kubernetes {
         defaultContainer 'pod'
-        yaml: """
+        yaml """
 apiVersion: v1
 kind: Pod
 metadata:
