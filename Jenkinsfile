@@ -1,8 +1,8 @@
 pipeline {
     agent {
-        kubernetes {
-            defaultContainer 'pod'
-            yaml: """
+      kubernetes {
+        defaultContainer 'pod'
+        yaml: """
 apiVersion: v1
 kind: Pod
 metadata:
@@ -18,10 +18,10 @@ spec:
 """
         }
     }
-    stages {
-    stage('Build') {
-   steps {
-      container('kubectl'){
+    stages{
+     stage('Build') {
+      steps{
+       container('kubectl'){
                 echo 'dddd'
                 sh "kubectl apply -f https://raw.githubusercontent.com/ceciliacalero/kubedeploy/master/ngnix-deployment.yml" 
               
