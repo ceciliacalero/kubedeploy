@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes{
-            label pod
+            label: pod
             yaml: """
 apiVersion: v1
 kind: Pod
@@ -19,7 +19,7 @@ spec:
 
         
     
-    {node(pod){
+    {node('pod'){
     
         stage('Build') {
         
