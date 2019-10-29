@@ -18,7 +18,7 @@ spec:
 """
 
         }
-    }
+    
     {node(pod){
     
         stage('Build') {
@@ -28,7 +28,7 @@ spec:
                 sh "kubectl apply -f https://raw.githubusercontent.com/ceciliacalero/kubedeploy/master/ngnix-deployment.yml" 
               
             }
-        }
+        }}
     }
 }
 }
