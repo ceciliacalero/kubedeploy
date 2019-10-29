@@ -22,8 +22,12 @@ spec:
      stage('Build') {
       steps{
        container('kubectl'){
-                echo 'dddd'
+                echo 'Creamos'
                 sh "kubectl apply -f https://raw.githubusercontent.com/ceciliacalero/kubedeploy/master/ngnix-deployment.yml" 
+                 echo 'esperamos 30 sg y borramos'
+                  sleep 30
+                sh "kubectl delete service my-service"
+                sh " kubectl delete deployment nginx-deployment"
               
             }
         }
