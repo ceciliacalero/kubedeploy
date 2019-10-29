@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes{
-            label: pod
+            defaultContainer 'pod'
             yaml: """
 apiVersion: v1
 kind: Pod
@@ -16,13 +16,11 @@ spec:
     - cat
     tty: true
 """
-
-        
-    
-    {node('pod'){
-    
-        stage('Build') {
-        
+        }
+    }
+    stages{
+    stage('Build') {
+   steps{
       container('kubectl'){
                 echo 'dddd'
                 sh "kubectl apply -f https://raw.githubusercontent.com/ceciliacalero/kubedeploy/master/ngnix-deployment.yml" 
@@ -32,5 +30,4 @@ spec:
     }
     }
 }
-}
-}
+
