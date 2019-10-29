@@ -17,7 +17,7 @@ spec:
     tty: true
 """
 
-        }
+        
     
     {node(pod){
     
@@ -28,7 +28,9 @@ spec:
                 sh "kubectl apply -f https://raw.githubusercontent.com/ceciliacalero/kubedeploy/master/ngnix-deployment.yml" 
               
             }
-        }}
+        }
     }
+    }
+}
 }
 }
